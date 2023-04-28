@@ -1,0 +1,81 @@
+------------------------------------Install
+npm install -g @angular/cli
+
+Na pasta:
+ng new nome
+
+https://stackoverflow.com/questions/9484829/npm-cant-find-package-json
+
+Inicia:
+ng serve
+
+
+Add componentes:
+Ng g component components/nomecomponente
+
+Adicionar 
+<App-nome>
+
+------------------------------------ Jquery
+ npm install --save jquery
+npm install -D @types/jquery
+
+import * as $ from 'jquery';
+
+
+----------------------------------Bootstrape
+npm install bootstrap@4.0.0-beta.2 jquery popper.js
+
+
+Em package.json
+    "bootstrap": "4.1.0",
+    "jquery": "3.3.1",
+    "popper": "1.0.1",
+
+Em angular-cli.json
+      "styles": [
+        "styles.css",
+        "../node_modules/bootstrap/dist/css/bootstrap.css"
+      ],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.js",
+        "../node_modules/popper.js/dist/umd/popper.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.js"
+      ],
+
+--Output []
+
+--Input ()
+
+--Add Serviço
+Ng g s services/nomeservico --module=nome.do.modulo
+
+--Add Componente
+Ng g c components/nomecomponent
+
+---Routing:
+Ng g m app-routing --flat --module=app
+
+No app-routing.ts
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+const routes: Routes = [
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'blog', component: PostsComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'desenvolvimento', component: DesenvolvimentoComponent },
+      { path: 'fotografia', component: FotografiaComponent },
+      { path: 'investimentos', component: StockmarketComponent },
+      { path: 'http', component: SamplepostComponent }//,
+      //{ path: '**', redirectTo: 'home' }
+    ];
+@NgModule({
+  exports: [RouterModule],
+  imports: [
+    RouterModule.forRoot(routes)
+  ]
+})
+export class AppRoutingModule { }
+
+No HTML:
+<router-outlet></router-outlet>
