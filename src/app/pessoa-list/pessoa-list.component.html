@@ -1,0 +1,32 @@
+<h1>Listagem de Pessoas</h1>
+
+<button routerLink="/pessoa/create">Nova Pessoa</button>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Idade</th>
+      <th>Sexo</th>
+      <th>Endereço</th>
+      <th>Telefone</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pessoa of pessoas">
+      <td>{{ pessoa.nome }}</td>
+      <td>{{ pessoa.idade }}</td>
+      <td>{{ pessoa.sexo }}</td>
+      <td>{{ pessoa.endereco.logradouro }}, {{ pessoa.endereco.numero }} - {{ pessoa.endereco.bairro }} - {{ pessoa.endereco.cidade }}/{{ pessoa.endereco.uf }}</td>
+      <td>{{ pessoa.telefones[0].ddd }} {{ pessoa.telefones[0].numero }}</td>
+      <td>
+        <button routerLink="/pessoa/{{ pessoa.id }}">Detalhes</button>
+        <button routerLink="/pessoa/{{ pessoa.id }}/editar">Editar</button>
+        <button mat-icon-button (click)="openDeleteDialog(pessoa)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
