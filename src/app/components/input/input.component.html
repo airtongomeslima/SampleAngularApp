@@ -1,0 +1,52 @@
+<label class="control-label" [for]="name" *ngIf="label">{{label}} <span class="text-danger"
+    *ngIf="required">*</span></label>
+<div class="row m-b-15">
+  <div class="col-md-12">
+    <ng-container *ngIf="type === 'text' || type === 'number' || type === 'password'">
+      <input [type]="type" [(ngModel)]="inputModel" (ngModelChange)="inputModelChange.emit(inputModel)"
+        class="form-control" [name]="name" #field="ngModel" [placeholder]="placeholder" [required]="required"
+        [ngClass]="{'is-invalid':field.errors && field.touched}" (blur)="eventBlur(field)" />
+
+    </ng-container>
+
+
+    <ng-container *ngIf="type === 'checkbox'">
+      <div class="checkbox checkbox-css">
+        <input type="checkbox" [id]="name" [name]="name" [checked]="inputModel"
+          (change)="inputModel = !inputModel; inputModelChange.emit(inputModel)" [required]="required" />
+        <label [for]="name">{{checkboxlabel}}</label>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="type === 'textwithcheckbox' || type === 'numberwithcheckbox'">
+      <div class="row row-space-10">
+        <div class="input-group col-md-12 m-b-15 p-0">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <input type="checkbox" [id]="name" [checked]="checkboxchecked"
+                (change)="checkboxchecked = !checkboxchecked; checkboxChanged.emit(checkboxchecked);"
+                [required]="required" />
+              {{checkboxlabel}}
+            </span>
+          </div>
+          <input [type]="type" [(ngModel)]="inputModel" (ngModelChange)="inputModelChange.emit(inputModel)"
+            class="form-control" [name]="name" [placeholder]="placeholder" [required]="required" />
+        </div>
+      </div>
+    </ng-container>
+
+
+    <ng-container *ngIf="type === 'select'">
+      <div class="checkbox checkbox-css">
+        <select class="form-control" [name]="name" [(ngModel)]="inputModel"
+          (ngModelChange)="inputModelChange.emit(inputModel)" [required]="required">
+          <option *ngFor="let option of options" [value]="option.id">{{option.name}}</option>
+        </select>
+      </div>
+    </ng-container>
+
+    <div class="invalid-feedback">
+      This field is required.
+    </div>
+  </div>
+</div>

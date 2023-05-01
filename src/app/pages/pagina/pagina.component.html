@@ -1,0 +1,10 @@
+<p>
+  pagina works!
+</p>
+
+<app-user-editor [(user)]="currentUser" [isEdit]="isEdit" (cancelEvent)="isEdit = $event;" (save)="saveUser($event)">
+</app-user-editor>
+<hr />
+<app-user *ngFor="let user of users" [user]="user" (deleteUser)="deleteUser($event)"
+  (editUser)="selectUsertoEdit($event)">
+</app-user>

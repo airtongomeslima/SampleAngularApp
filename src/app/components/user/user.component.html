@@ -1,0 +1,25 @@
+<li class="card card-body mb-2">
+  <div class="row">
+    <div class="col-sm-12">
+      <h3>#{{user.id}} {{ user.name }} - {{ user.username }}</h3>
+      <ul class="list-group">
+        <li class="list-group-item">Email: {{ user.email }}</li>
+        <li class="list-group-item">Phone: {{ user.phone }}</li>
+        <li class="list-group-item">Web Site: {{ user.website }}</li>
+        <li class="list-group-item">
+          Address: {{ user.address.street }} {{ user.address.suite }},
+          {{ user.address.city }} {{ user.address.zipcode }}
+        </li>
+        <li class="list-group-item">
+          Company: {{ user.company.name }} - {{ user.company.catchPhrase }},
+          {{ user.company.bs }}
+        </li>
+        <li class="list-group-item">Web Site: {{ user.website }}</li>
+        <li class="list-group-item"><button class="btn btn-default" (click)="editUser.emit(user.id)">Edit User</button>
+        </li>
+        <li class="list-group-item"><button class="btn btn-danger" (click)="deleteUser.emit(user.id)">Delete
+            User</button></li>
+      </ul>
+    </div>
+  </div>
+</li>

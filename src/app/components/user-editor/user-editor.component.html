@@ -1,0 +1,50 @@
+<li class="card card-body mb-2">
+  <div class="row">
+    <div class="col-sm-12">
+      <h4>{{isEdit?'Edit':'New'}} User:</h4>
+
+      <app-input name="username" label="Your Full Name" [(inputModel)]="user.name" [required]="true">
+      </app-input>
+
+      <app-input name="useremail" type="email" label="Your Email" [(inputModel)]="user.email" [required]="true">
+      </app-input>
+
+      <app-input name="userphone" type="phone" label="Your Phone" [(inputModel)]="user.phone" [required]="true">
+      </app-input>
+
+      <app-input name="userphone" type="phone" label="Your WebSite" [(inputModel)]="user.website">
+      </app-input>
+
+      <ul class="list-group">
+        <h4>Address:</h4>
+        <li class="list-group-item">
+          <app-input name="useraddressstreet" label="Street" [(inputModel)]="user.address.street">
+          </app-input>
+          <app-input name="useraddresssuite" label="Suite" [(inputModel)]="user.address.suite">
+          </app-input>
+          <app-input name="useraddresscity" label="City" [(inputModel)]="user.address.city">
+          </app-input>
+          <app-input name="useraddresszipcode" label="Zipcode" [(inputModel)]="user.address.zipcode">
+          </app-input>
+        </li>
+      </ul>
+
+      <ul class="list-group">
+        <h4>Company:</h4>
+        <li class="list-group-item">
+          <app-input name="usercompanyname" label="Name" [(inputModel)]="user.company.name">
+          </app-input>
+          <app-input name="usercompanycatchphrase" label="Catch Phrase" [(inputModel)]="user.company.catchPhrase">
+          </app-input>
+          <app-input name="usercompanybs" label="BS" [(inputModel)]="user.company.bs">
+          </app-input>
+        </li>
+      </ul>
+
+      <button class="btn btn-warning" (click)="cancel()">Cancel</button>
+      <button class="btn btn-success" (click)="saveUser()">Save</button>
+
+
+    </div>
+  </div>
+</li>

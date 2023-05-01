@@ -1,38 +1,32 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PessoaListComponent } from './pessoa-list/pessoa-list.component';
-import { PessoaCreateComponent } from './pessoa-create/pessoa-create.component';
-import { PessoaEditComponent } from './pessoa-edit/pessoa-edit.component';
-import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
-import { FormsModule } from '@angular/forms';
-import { MatIconModule } from '@angular/material/icon';
-import { HomeComponent } from './home/home.component';
-import { MatToolbarModule } from '@angular/material/toolbar'; 
+import { AppRoutingModule } from './/app-routing.module';
+import { PaginaComponent } from './pages/pagina/pagina.component';
+import { PaginaLogadaComponent } from './pages/pagina-logada/pagina-logada.component';
+import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
-//import {BrowserAnimationsModule} from '@angular/platform browser/animations';
+import { UserComponent } from './components/user/user.component';
+import { UserEditorComponent } from './components/user-editor/user-editor.component';
+import { InputComponent } from './components/input/input.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PessoaListComponent,
-    PessoaCreateComponent,
-    PessoaEditComponent,
-    ConfirmationDialogComponent,
-    HomeComponent
+    PaginaComponent,
+    PaginaLogadaComponent,
+    HomeComponent,
+    UserComponent,
+    UserEditorComponent,
+    InputComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    MatIconModule,
-    MatToolbarModule,
     HttpClientModule,
-    MatDialogModule
-    //BrowserAnimationsModule
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
