@@ -17,6 +17,7 @@ import { EnderecoEditorComponent } from './components/endereco-editor/endereco-e
 import { PessoaEditorComponent } from './components/pessoa-editor/pessoa-editor.component';
 import { PessoaComponent } from './pages/pessoa/pessoa.component';
 import { PessoasComponent } from './pages/pessoas/pessoas.component';
+import { GenericListComponent } from './components/generic-list/generic-list.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { PessoasComponent } from './pages/pessoas/pessoas.component';
     EnderecoEditorComponent,
     PessoaEditorComponent,
     PessoaComponent,
-    PessoasComponent
+    PessoasComponent,
+    GenericListComponent
   ],
   imports: [
     BrowserModule,

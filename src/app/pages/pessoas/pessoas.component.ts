@@ -21,4 +21,16 @@ export class PessoasComponent {
 
     this.pessoaService.getPessoas();
   }
+
+  deletePessoa(id: number) {
+    console.log('Deletar pessoa: ', id);
+  }
+
+  editPessoa(id: number) {
+    console.log('Editar pessoa: ', id);
+  }
+
+  addPessoa() {
+    console.log('Adicionar pessoa.');
+  }
 }
