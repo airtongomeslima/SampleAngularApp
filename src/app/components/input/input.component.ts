@@ -1,16 +1,17 @@
-import { Component, OnInit, Output, Input, EventEmitter, AfterContentInit } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { SimpleList } from '../../models/simpleListModel';
 
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
-  styleUrls: ['./input.component.css']
+  styleUrls: ['./input.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class InputComponent implements OnInit, AfterContentInit {
+export class InputComponent implements OnInit {
   @Input() inputModel: any;
   @Input() name: string = "";
   @Input() label: string = "";
-  @Input() type: string = "";
+  @Input() type: string = "text";
   @Input() placeholder: string = "";
   @Input() disabled: boolean = false;
   @Input() required: boolean = false;
@@ -23,18 +24,11 @@ export class InputComponent implements OnInit, AfterContentInit {
   constructor() { }
 
   ngOnInit() {
-  }
-
-  ngAfterContentInit() {
-    this.type = 'text';
-    this.placeholder = '';
-    this.disabled = false;
-    this.required = false;
-    this.checkboxchecked = false;
+    console.log('blured', this.type);
   }
 
   eventBlur(field: any) {
-    console.log('blured', field);
+    // console.log('blured', field);
   }
 
 }
