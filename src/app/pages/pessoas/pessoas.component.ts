@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { PessoaModel } from 'src/app/models/PessoaModel';
 import { PessoaService } from 'src/app/services/pessoa/pessoa.service';
 
@@ -10,7 +11,7 @@ import { PessoaService } from 'src/app/services/pessoa/pessoa.service';
 export class PessoasComponent {
   pessoas: PessoaModel[] = [];
 
-  constructor(private pessoaService: PessoaService) {
+  constructor(private pessoaService: PessoaService, private router: Router) {
 
   }
 
@@ -23,14 +24,14 @@ export class PessoasComponent {
   }
 
   deletePessoa(id: number) {
-    console.log('Deletar pessoa: ', id);
+    this.pessoaService.deletarPessoa(id);
   }
 
   editPessoa(id: number) {
-    console.log('Editar pessoa: ', id);
+    this.router.navigate(['/pessoa', id]);
   }
 
   addPessoa() {
-    console.log('Adicionar pessoa.');
+    this.router.navigate(['/pessoa']);
   }
 }

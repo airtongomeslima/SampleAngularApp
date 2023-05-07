@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { PessoaModel } from 'src/app/models/PessoaModel';
 import { PessoaService } from 'src/app/services/pessoa/pessoa.service';
 
@@ -16,21 +16,24 @@ export class PessoaComponent implements OnInit {
   constructor(private pessoaService: PessoaService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const pessoaId = Number(this.route.snapshot.paramMap.get('id'));
+    this.route.paramMap.subscribe(params => {
+      const idParam = this.route.snapshot.paramMap.get('id');
+      const id = idParam ? parseInt(idParam, 10) : null;
+      if (id) {
+        this.title = 'Editar Pessoa';
+        this.pessoaService.currentPessoa.subscribe(pessoa => {
+          if (pessoa)
+            this.pessoa = pessoa;
+          else
+            throw new Error('Pessoa não encontrada.');
+        });
+        this.pessoaService.getPessoa(id);
+      } else {
+        this.title = 'Nova Pessoa';
+      }
+    });
 
-    if (pessoaId) {
-      this.title = 'Editar Pessoa';
 
-      this.pessoaService.currentPessoa.subscribe(pessoa => {
-        if (pessoa)
-          this.pessoa = pessoa;
-        else
-          throw new Error('Pessoa não encontrada.');
-      });
-      this.pessoaService.getPessoa(pessoaId);
-    } else {
-      this.title = 'Nova Pessoa';
-    }
   }
 
   onPessoaChange(): void {

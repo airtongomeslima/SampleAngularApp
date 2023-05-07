@@ -25,8 +25,7 @@ export class PessoaService {
   }
 
   public getPessoa(id: number): void {
-    const queryOptions = `id=${id.toString()}`;
-    this.baseService.get<PessoaModel>(queryOptions, 'pessoa')
+    this.baseService.get<PessoaModel>('', `pessoa/${id}`)
       .pipe(take(1))
       .subscribe(response => {
         this.currentPessoa.next(response);
