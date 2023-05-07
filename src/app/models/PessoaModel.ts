@@ -9,7 +9,6 @@ export class PessoaModel {
     sobreNome: string = "";
     sexo: string = "";
     idade: number = 0;
-    pessoaResponsavel: string = "";
     endereco: EnderecoModel = new EnderecoModel();
     telefones: TelefoneModel[] = [];
 }

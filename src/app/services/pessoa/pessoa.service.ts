@@ -33,6 +33,7 @@ export class PessoaService {
   }
 
   public criarPessoa(pessoa: PessoaModel): Observable<PessoaModel> {
+    console.log("Criando Pessoa", pessoa);
     return this.baseService.post<PessoaModel, PessoaModel>(pessoa, 'pessoa');
   }
 

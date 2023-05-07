@@ -11,6 +11,7 @@ import { PessoaService } from 'src/app/services/pessoa/pessoa.service';
 })
 export class PessoaComponent implements OnInit {
   title: string = "";
+  isEdit: boolean = false;
   pessoa: PessoaModel = new PessoaModel();
 
   constructor(private pessoaService: PessoaService, private route: ActivatedRoute) { }
@@ -27,8 +28,10 @@ export class PessoaComponent implements OnInit {
           else
             throw new Error('Pessoa não encontrada.');
         });
+        this.isEdit = true;
         this.pessoaService.getPessoa(id);
       } else {
+        this.isEdit = false;
         this.title = 'Nova Pessoa';
       }
     });
@@ -36,12 +39,15 @@ export class PessoaComponent implements OnInit {
 
   }
 
-  onPessoaChange(): void {
-    console.log('Pessoa alterada.');
+  onSave(): void {
+    if (this.isEdit) {
+      this.pessoaService.atualizarPessoa(this.pessoa).subscribe(result => {
+        console.log("Resultado: ", result);
+      });
+    } else {
+      this.pessoaService.criarPessoa(this.pessoa).subscribe(result => {
+        console.log("Resultado: ", result);
+      });
+    }
   }
-
-  salvar(): void {
-    console.log('Salvar pessoa.');
-  }
-
 }

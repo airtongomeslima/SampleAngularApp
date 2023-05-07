@@ -11,13 +11,12 @@
 
 <div class="form-group">
     <h4>Endereço:</h4>
-    <app-endereco-editor [endereco]="pessoa.endereco" (enderecoChange)="onPessoaChange()"></app-endereco-editor>
+    <app-endereco-editor [endereco]="pessoa.endereco"></app-endereco-editor>
 </div>
 
 <div class="form-group">
     <h4>Telefones:</h4>
-    <app-telefone-list-editor [telefones]="pessoa.telefones"
-        (telefonesChange)="onPessoaChange()"></app-telefone-list-editor>
+    <app-telefone-list-editor [telefones]="pessoa.telefones"></app-telefone-list-editor>
 </div>
 
-<button class="btn btn-primary" (click)="onPessoaChange()">Salvar</button>
+<button class="btn btn-primary" (click)="onSave()">Salvar</button>

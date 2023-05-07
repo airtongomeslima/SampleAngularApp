@@ -9,7 +9,7 @@ import { SimpleList } from 'src/app/models/simpleListModel';
   styleUrls: ['./pessoa-editor.component.css']
 })
 export class PessoaEditorComponent implements OnInit {
-  @Output() pessoaChange: EventEmitter<PessoaModel> = new EventEmitter<PessoaModel>();
+  @Output() onSaveEvent: EventEmitter<PessoaModel> = new EventEmitter<PessoaModel>();
   @Input() pessoa: PessoaModel = new PessoaModel();
   pessoas: SimpleList[] = [];
 
@@ -30,10 +30,9 @@ export class PessoaEditorComponent implements OnInit {
 
   ngOnInit() {
     this.getPessoas();
-    this.pessoaChange.emit(this.pessoa);
   }
 
-  onPessoaChange() {
-    this.pessoaChange.emit(this.pessoa);
+  onSave() {
+    this.onSaveEvent.emit(this.pessoa);
   }
 }
