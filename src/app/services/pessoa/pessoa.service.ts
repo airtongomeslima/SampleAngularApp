@@ -7,14 +7,15 @@ import { PessoaModel } from 'src/app/models/PessoaModel';
 @Injectable({
   providedIn: 'root'
 })
+
 export class PessoaService {
   public pessoas: BehaviorSubject<PessoaModel[]> = new BehaviorSubject<PessoaModel[]>([]);
   public currentPessoa: BehaviorSubject<PessoaModel | null> = new BehaviorSubject<PessoaModel | null>(null);
 
   constructor(private baseService: BaseService) { }
 
-  public getPessoas(): void {
-    this.baseService.getList<PessoaModel>('', 'pessoa')
+  public getPessoas(page: number = 1, quantity: number = 25, orderBy: string = "Id", order: string = "asc"): void {
+    this.baseService.getList<PessoaModel>('', `pessoa?page=${page}&quantity=${quantity}&orderBy=${orderBy}&order=${order}`)
       .pipe(take(1))
       .subscribe(response => {
         this.pessoas.next(response);
