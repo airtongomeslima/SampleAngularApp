@@ -1,0 +1,9 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>{{ title }}</h1>
+            <app-pessoa-editor [pessoa]="pessoa" (pessoaChange)="onPessoaChange()"></app-pessoa-editor>
+            <button class="btn btn-primary" (click)="salvar()">Salvar</button>
+        </div>
+    </div>
+</div>

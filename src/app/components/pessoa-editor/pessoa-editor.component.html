@@ -1,0 +1,23 @@
+<input type="hidden" name="id" [(ngModel)]="pessoa.id">
+
+<app-input name="nome" label="Nome" [(inputModel)]="pessoa.nome"></app-input>
+<app-input name="sobreNome" label="Sobrenome" [(inputModel)]="pessoa.sobreNome"></app-input>
+<app-input name="sexo" label="Sexo" [(inputModel)]="pessoa.sexo" [options]="listaSexo" type="select"></app-input>
+<app-input name="idade" label="Idade" [(inputModel)]="pessoa.idade" type="number"></app-input>
+<app-input name="idPessoaResponsavel" label="Pessoa Responsável" [(inputModel)]="pessoa.idPessoaResponsavel"
+    [options]="pessoas" type="select"></app-input>
+
+
+
+<div class="form-group">
+    <h4>Endereço:</h4>
+    <app-endereco-editor [endereco]="pessoa.endereco" (enderecoChange)="onPessoaChange()"></app-endereco-editor>
+</div>
+
+<div class="form-group">
+    <h4>Telefones:</h4>
+    <app-telefone-list-editor [telefones]="pessoa.telefones"
+        (telefonesChange)="onPessoaChange()"></app-telefone-list-editor>
+</div>
+
+<button class="btn btn-primary" (click)="onPessoaChange()">Salvar</button>

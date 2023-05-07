@@ -1,0 +1,7 @@
+<input type="hidden" name="id" [(ngModel)]="telefone.id">
+
+<app-input name="ddd" label="DDD" [(inputModel)]="telefone.ddd" [required]="true" [type]="'text'" [placeholder]="'(__)'"
+    class="form-control"></app-input>
+
+<app-input name="numero" label="Número" [(inputModel)]="telefone.numero" [required]="true" [type]="'text'"
+    [placeholder]="'_____-____'" class="form-control"></app-input>

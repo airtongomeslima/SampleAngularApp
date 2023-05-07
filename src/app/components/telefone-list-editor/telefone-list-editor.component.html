@@ -1,0 +1,5 @@
+<div *ngFor="let telefone of telefones; let i=index">
+    <app-telefone-editor (telefoneChange)="telefonesChange.emit(telefones)"></app-telefone-editor>
+    <button *ngIf="i !== 0" type="button" class="btn btn-danger" (click)="removerTelefone(i)">-</button>
+</div>
+<button type="button" class="btn btn-primary" (click)="adicionarTelefone()">Adicionar telefone</button>

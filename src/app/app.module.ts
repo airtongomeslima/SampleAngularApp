@@ -11,6 +11,12 @@ import { UserComponent } from './components/user/user.component';
 import { UserEditorComponent } from './components/user-editor/user-editor.component';
 import { InputComponent } from './components/input/input.component';
 import { FormsModule } from '@angular/forms';
+import { TelefoneEditorComponent } from './components/telefone-editor/telefone-editor.component';
+import { TelefoneListEditorComponent } from './components/telefone-list-editor/telefone-list-editor.component';
+import { EnderecoEditorComponent } from './components/endereco-editor/endereco-editor.component';
+import { PessoaEditorComponent } from './components/pessoa-editor/pessoa-editor.component';
+import { PessoaComponent } from './pages/pessoa/pessoa.component';
+import { PessoasComponent } from './pages/pessoas/pessoas.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +26,13 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     UserComponent,
     UserEditorComponent,
-    InputComponent
+    InputComponent,
+    TelefoneEditorComponent,
+    TelefoneListEditorComponent,
+    EnderecoEditorComponent,
+    PessoaEditorComponent,
+    PessoaComponent,
+    PessoasComponent
   ],
   imports: [
     BrowserModule,

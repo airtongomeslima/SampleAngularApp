@@ -18,7 +18,7 @@ export class InputComponent implements OnInit, AfterContentInit {
   @Input() checkboxlabel: string = "";
   @Input() options: Array<SimpleList> = [];
   @Output() checkboxChanged = new EventEmitter<boolean>();
-  @Output() inputModelChange = new EventEmitter<string>();
+  @Output() inputModelChange = new EventEmitter<any>();
 
   constructor() { }
 

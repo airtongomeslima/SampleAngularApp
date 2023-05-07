@@ -1,0 +1,13 @@
+<div class="form-group">
+    <input type="hidden" name="id" [(ngModel)]="endereco.id">
+    <app-input name="logradouro" label="Logradouro" [(inputModel)]="endereco.logradouro"
+        (inputModelChange)="onEnderecoChange()"></app-input>
+    <app-input name="numero" label="Número" [(inputModel)]="endereco.numero"
+        (inputModelChange)="onEnderecoChange()"></app-input>
+    <app-input name="bairro" label="Bairro" [(inputModel)]="endereco.bairro"
+        (inputModelChange)="onEnderecoChange()"></app-input>
+    <app-input name="cidade" label="Cidade" [(inputModel)]="endereco.cidade"
+        (inputModelChange)="onEnderecoChange()"></app-input>
+    <app-input name="uf" label="UF" [(inputModel)]="endereco.uf" (inputModelChange)="onEnderecoChange()"></app-input>
+    <app-input name="cep" label="CEP" [(inputModel)]="endereco.cep" (inputModelChange)="onEnderecoChange()"></app-input>
+</div>
