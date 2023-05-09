@@ -14,8 +14,8 @@ export class PessoaEditorComponent implements OnInit {
   pessoas: SimpleList[] = [];
 
   listaSexo: SimpleList[] = [
-    { id: 1, name: 'Masculino', value: 'M' },
-    { id: 2, name: 'Feminino', value: 'F' }
+    { name: 'M', value: 'M' },
+    { name: 'F', value: 'F' }
   ];
 
   constructor(private pessoaService: PessoaService) { }

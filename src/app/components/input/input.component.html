@@ -40,7 +40,8 @@
       <div class="checkbox checkbox-css">
         <select class="form-control" [name]="name" [(ngModel)]="inputModel"
           (ngModelChange)="inputModelChange.emit(inputModel)" [required]="required">
-          <option *ngFor="let option of options" [value]="option.id">{{option.name}}</option>
+          <option *ngFor="let option of options" [value]="option.value" [selected]="option.value === inputModel">
+            {{option.name}}</option>
         </select>
       </div>
     </ng-container>

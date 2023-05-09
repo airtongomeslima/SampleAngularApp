@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { TelefoneModel } from '../../models/TelefoneModel';
 
 @Component({
@@ -9,13 +9,14 @@ import { TelefoneModel } from '../../models/TelefoneModel';
 export class TelefoneEditorComponent implements OnInit {
   @Output() telefoneChange: EventEmitter<TelefoneModel> = new EventEmitter<TelefoneModel>();
 
-  telefone: TelefoneModel;
+  @Input() telefone: TelefoneModel = new TelefoneModel();
 
   constructor() {
-    this.telefone = new TelefoneModel();
+    // this.telefone = new TelefoneModel();
   }
 
   ngOnInit() {
+    console.log(this.telefone);
     this.telefoneChange.emit(this.telefone);
   }
 
