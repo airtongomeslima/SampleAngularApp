@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { PessoaModel } from 'src/app/models/PessoaModel';
 import { PessoaService } from 'src/app/services/pessoa/pessoa.service';
 
@@ -14,7 +14,7 @@ export class PessoaComponent implements OnInit {
   isEdit: boolean = false;
   pessoa: PessoaModel = new PessoaModel();
 
-  constructor(private pessoaService: PessoaService, private route: ActivatedRoute) { }
+  constructor(private pessoaService: PessoaService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -42,10 +42,12 @@ export class PessoaComponent implements OnInit {
   onSave(): void {
     if (this.isEdit) {
       this.pessoaService.atualizarPessoa(this.pessoa).subscribe(result => {
-        console.log("Resultado: ", result);
+        alert('Pessoa salva com sucesso.');
+        this.router.navigate(['/pessoas']);
       });
     } else {
       this.pessoaService.criarPessoa(this.pessoa).subscribe(result => {
+        alert('Erro ao salvar pessoa.');
         console.log("Resultado: ", result);
       });
     }

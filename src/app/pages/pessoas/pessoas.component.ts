@@ -25,6 +25,7 @@ export class PessoasComponent {
 
   deletePessoa(id: number) {
     this.pessoaService.deletarPessoa(id);
+    this.pessoaService.getPessoas();
   }
 
   editPessoa(id: number) {
